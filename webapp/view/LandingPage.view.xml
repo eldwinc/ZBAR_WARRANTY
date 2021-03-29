@@ -1,0 +1,149 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns="sap.uxap" xmlns:ui="sap.ui.table" xmlns:smartTable="sap.ui.comp.smarttable"
+	xmlns:layout="sap.ui.layout" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+	controllerName="tccc.zbar.warranty.controller.LandingPage" xmlns:html="http://www.w3.org/1999/xhtml">
+	<m:Page>
+		<ObjectPageLayout id="ObjectPageLayout" selectedSection="blockReimbSummary" useIconTabBar="true" showTitleInHeaderContent="true"
+			upperCaseAnchorBar="false" class="classObjectPage whitebackgound">
+			<headerTitle class="whitebackgound">
+				<ObjectPageDynamicHeaderTitle class="whitebackgound">
+					<expandedHeading>
+						<layout:HorizontalLayout/>
+					</expandedHeading>
+					<snappedHeading>
+						<layout:HorizontalLayout/>
+					</snappedHeading>
+				</ObjectPageDynamicHeaderTitle>
+			</headerTitle>
+			<headerContent class="whitebackgound">
+				<layout:HorizontalLayout allowWrapping="true" class="classHorizontalLayoutLeft">
+					<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="ZBAR_LANDING_PAGE_PROJ_VIEW_C" enableBasicSearch="true"
+						basicSearchFieldName="Invdocno,Payfor,Payto,Payforname,Paytoname,ScStatus,Scorecardnum,ScType" showClearButton="true"
+						useDateRangeType="true">
+						<smartFilterBar:controlConfiguration>
+							<smartFilterBar:ControlConfiguration key="Payfor" label="Pay For" visibleInAdvancedArea="true" visible="true" index="2"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="Payto" label="Pay To" visibleInAdvancedArea="true" visible="true" index="3"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="ScType" label="Scorecard Type" visibleInAdvancedArea="true" visible="true" index="6"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="sc_period" label="Period" visibleInAdvancedArea="true" visible="true" index="4"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="ScYear" label="Year" visibleInAdvancedArea="true" visible="true" index="5"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="ScStatus" label="Status" visibleInAdvancedArea="true" visible="true" index="7"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="ChainBP" label="Chain BP #" visibleInAdvancedArea="true" visible="true" index="8"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="PaymntTerms" label="Payment Terms" visibleInAdvancedArea="true" visible="true" index="9"></smartFilterBar:ControlConfiguration>
+							<smartFilterBar:ControlConfiguration key="NetReimb" label="Reimbursement Amount" visibleInAdvancedArea="true" visible="true"
+								filterType="interval" index="10"></smartFilterBar:ControlConfiguration>
+						</smartFilterBar:controlConfiguration>
+					</smartFilterBar:SmartFilterBar>
+				</layout:HorizontalLayout>
+			</headerContent>
+			<sections>
+				<ObjectPageSection title="">
+					<subSections>
+						<ObjectPageSubSection>
+							<m:Table mode="SingleSelectMaster" itemPress="onPressTableRow" >
+								<m:columns>
+									<m:Column >
+										<m:Text text="Claim No" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Status" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Submit Date" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Claimed to OEM" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Call Date" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Store No" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Store BP No" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Owner Operator" />
+									</m:Column>
+									<m:Column >
+										<m:Text text="Work Order No" />
+									</m:Column>
+								</m:columns>
+								<m:items>
+									<m:ColumnListItem type="Navigation">
+										<m:Text text="123123"/>
+										<m:Text text="Partially Paid"/>
+										<m:Text text="01/01/2021"/>
+										<m:Text text="Heinz"/>
+										<m:Text text="12/11/2020"/>
+										<m:Text text="4664"/>
+										<m:Text text="466764"/>
+										<m:Text text="Lightning McQueen"/>
+										<m:Text text="V431933481"/>
+									</m:ColumnListItem>
+								</m:items>
+							</m:Table> 
+							<!--<smartTable:SmartTable id="smartTable" entitySet="ZBAR_LANDING_PAGE_PROJ_VIEW_C" smartFilterId="smartFilterBar" tableType="ResponsiveTable"-->
+							<!--	useExportToExcel="true" beforeExport="onBeforeExport" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"-->
+							<!--	demandPopin="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" class="sapUiResponsiveContentPadding"-->
+							<!--	beforeRebindTable='onBeforeRebindTable'>-->
+							<!--	<ui:Table  enableBusyIndicator="true" threshold="50"  id="customTable" cellClick="onScorecardPress">-->
+							<!--		<ui:columns>-->
+							<!--			<ui:Column id="Priority" width="2rem" autoResizable="true">-->
+							<!--				<m:Label text=""/>-->
+							<!--				<ui:customData>-->
+							<!--					<core:CustomData key="p13nData" value='\{"columnKey": "Priority", "leadingProperty": "Priority", "sortProperty": "Priority" }'/>-->
+							<!--				</ui:customData>-->
+							<!--				<ui:template>-->
+							<!--					<core:Icon src="sap-icon://time-account" color="green" visible="{path:'Priority', formatter:'.formatter.warningIndicator'}"/>-->
+							<!--				</ui:template>-->
+							<!--			</ui:Column>-->
+							<!--			<ui:Column id="Agedar" width="2rem" autoResizable="true">-->
+							<!--				<m:Label text=""/>-->
+							<!--				<ui:customData>-->
+							<!--					<core:CustomData key="p13nData" value='\{"columnKey": "Agedar", "leadingProperty": "Agedar", "sortProperty": "Agedar"}'/>-->
+							<!--				</ui:customData>-->
+							<!--				<ui:template>-->
+							<!--					<core:Icon src="sap-icon://busy" color="red" visible="{path:'Agedar', formatter:'.formatter.warningIndicator'}"/>-->
+							<!--				</ui:template>-->
+							<!--			</ui:Column>-->
+							<!--			<ui:Column id="warning" width="2rem" autoResizable="true">-->
+							<!--				<ui:customData>-->
+							<!--					<core:CustomData key="p13nData" value='\{"columnKey": "warning", "leadingProperty": "warning", "sortProperty": "warning"}'/>-->
+							<!--				</ui:customData>-->
+							<!--				<m:Label text=""/>-->
+							<!--				<ui:template>-->
+							<!--					<core:Icon src="sap-icon://message-warning" color="red" visible="{path:'warning', formatter:'.formatter.warningIndicator'}"/>-->
+							<!--				</ui:template>-->
+							<!--			</ui:Column>-->
+							<!--			<ui:Column id="NewCommentInd" width="2rem">-->
+							<!--				<ui:customData>-->
+							<!--					<core:CustomData key="p13nData" value='\{"columnKey": "NewCommentInd", "leadingProperty": "NewCommentInd", "sortProperty": "NewCommentInd"}'/>-->
+							<!--				</ui:customData>-->
+							<!--				<m:Label text=""/>-->
+							<!--				<ui:template>-->
+							<!--					<core:Icon src="sap-icon://notification-2" color="black" visible="{path:'NewCommentInd', formatter:'.formatter.warningIndicator'}"/>-->
+							<!--				</ui:template>-->
+							<!--			</ui:Column>-->
+							<!--			<ui:Column id="ScStatus" filterProperty="ScStatus" width="5rem">-->
+							<!--				<ui:customData>-->
+							<!--					<core:CustomData key="p13nData"-->
+							<!--						value='\{"columnKey": "ScStatus", "leadingProperty": "ScStatus", "columnIndex":"7", "sortProperty": "ScStatus" ,"filterProperty" :"ScStatus"}'/>-->
+							<!--				</ui:customData>-->
+							<!--				<m:Label text="Status"/>-->
+							<!--				<ui:template>-->
+							<!--					<m:ObjectStatus class="sapUiSmallMarginBottom" text="{ScStatus}" state="{path:'ScStatus', formatter:'.formatter.StatusIndicator'}"/>-->
+							<!--				</ui:template>-->
+							<!--			</ui:Column>-->
+							<!--		</ui:columns>-->
+							<!--	</ui:Table>-->
+							<!--</smartTable:SmartTable>-->
+						</ObjectPageSubSection>
+					</subSections>
+				</ObjectPageSection>
+			</sections>
+		</ObjectPageLayout>
+		<m:footer>
+			<core:Fragment fragmentName="tccc.zbar.warranty.fragment.footerToolbar" type="XML" />
+		</m:footer>
+	</m:Page>
+</mvc:View>

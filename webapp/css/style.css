@@ -1,0 +1,4 @@
+/*Hide spaces arising from blank titles in all forms with class formHiddenTitle*/
+.formHiddenTitle .sapUiFormContainerTitle .sapUiFormTitle{
+    display:none;
+}

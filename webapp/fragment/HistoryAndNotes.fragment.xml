@@ -1,0 +1,54 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:upload="sap.m.upload" >
+	<FlexBox height="100%" >
+        <VBox>
+            <layoutData>
+                <FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+            </layoutData>
+            <Toolbar>
+                <Title text="Notes and Attachments" class="sapUiSmallMarginBegin" />
+            </Toolbar>
+            <upload:UploadSet id="uploadSet" instantUpload="false" maxFileNameLength="19" fileNameLengthExceeded="onFileNameLengthExceeded"
+            noDataDescription="Drop files to upload, or select the paper clip icon." noDataText=" " beforeUploadStarts="onBeforeUploadStarts"
+            maxFileSize="3" fileSizeExceeded="onFileSizeExceeded"
+            uploadCompleted="onUploadCompleted" uploadUrl="/sap/opu/odata/sap/ZBAR_SC_NOTES_AND_ATTACHMENTS_SRV/AttachmentReadSet">
+                <upload:toolbar>
+                    <OverflowToolbar class="inputToolbar">
+                        <Input id='inputComment' maxLength="255" placeholder="Enter comment here" width="78%"/>
+                        <Button id="submit" press="onSubmit" text="Submit" type="Transparent"/>
+                    </OverflowToolbar>
+                </upload:toolbar>
+            </upload:UploadSet>
+            <List id="listNotesAttachments" items="{noteAttach>/}" mode="None">
+                <headerToolbar>
+                    <Toolbar >
+                        <SearchField class="sapUiTinyMargin" liveChange="onListSearch" />
+                        <Button icon="sap-icon://sort" press="onListSort" type="Transparent"/>
+                        <Button icon="sap-icon://filter" press="onListFilter" type="Transparent"/>
+                    </Toolbar>
+                </headerToolbar>
+                <CustomListItem>
+                    <VBox class="sapUiSmallMargin" >
+                        <HBox justifyContent="SpaceBetween" class="sapUiTinyMarginBottom sapUiTinyMarginEnd">
+                            <Title text="{noteAttach>CreatorName}"/>
+                        	<Text text="{parts:[{path:'noteAttach>NotesType'},{path:'noteAttach>CreatedOn'}], formatter:'.formatter.formattedDate'}"/>
+                        </HBox>
+                        <Text class="sapUiTinyMarginBottom" text="{noteAttach>NotesData}"/>
+                        <VBox items="{path:'noteAttach>Files', templateShareable:false}">
+                            <HBox>
+                            	<core:Icon class="sapUiTinyMarginEnd" src="{path:'noteAttach>DocType', formatter:'.formatter.customFileIcon'}" />
+                            	<Link href="{parts:[{path:'noteAttach>ObjectId'},{path:'noteAttach>Viewname'},{path:'noteAttach>Title'}], formatter:'.formatter.fileDownloadHref'}" target="_blank"
+                            	text="{path:'noteAttach>Title'}" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </CustomListItem>
+            </List>
+        </VBox>
+        <VBox >
+            <layoutData>
+                <FlexItemData growFactor="1" baseSize="0" backgroundDesign="Solid" styleClass="sapUiTinyMargin" />
+            </layoutData>
+            <Text text="Change History"/>
+        </VBox>
+    </FlexBox>
+</core:FragmentDefinition>

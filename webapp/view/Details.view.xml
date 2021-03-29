@@ -1,0 +1,560 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns="sap.uxap" xmlns:form="sap.ui.layout.form" 
+	controllerName="tccc.zbar.warranty.controller.Details" xmlns:html="http://www.w3.org/1999/xhtml">
+	<m:Page enableScrolling="false" showHeader="true" id="pageScorecard" class="whitebackgound">
+		<m:content>
+			<m:MessageStrip visible="false" id="Warning_message" text="" type="Warning" showIcon="true" showCloseButton="false"/>
+			<ObjectPageLayout id="ObjectPageLayout" selectedSection="fragSCHome" useIconTabBar="true"
+				upperCaseAnchorBar="false" class="classObjectPage whitebackgound">
+				<!--<headerTitle class="whitebackgound">-->
+				<!--	<ObjectPageDynamicHeaderTitle class="whitebackgound">-->
+				<!--		<expandedHeading>-->
+				<!--			<layout:HorizontalLayout allowWrapping="true" class="classHorizontalLayoutLeft">-->
+				<!--				<layout:VerticalLayout>-->
+				<!--					<m:Title class="classTitle" text="{headerSetTab>/Payforname}" wrapping="true"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd classHorizontalLayoutLeft">-->
+				<!--					<m:ObjectAttribute title="Period"/>-->
+				<!--					<layout:HorizontalLayout>-->
+				<!--						<m:Text text="{headerSetTab>/Period}" class="classTextHeader"/>-->
+				<!--					</layout:HorizontalLayout>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Scorecard Type"/>-->
+				<!--					<m:Label text="{headerSetTab>/ScType}" class="classTextHeader"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiSmallMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Chain BP"/>-->
+				<!--					<m:Label text="{headerSetTab>/ChainBp}" class="classTextHeader"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Scorecard Number"/>-->
+				<!--					<m:Label text="{headerSetTab>/Srcdocno}" class="classTextHeader"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Scorecard Status" />-->
+				<!--					<m:Text text="{headerSetTab>/ScStatus}" class="classTextHeader" />-->
+				<!--				</layout:VerticalLayout>-->
+				<!--			</layout:HorizontalLayout>-->
+				<!--		</expandedHeading>-->
+				<!--		<snappedHeading>-->
+				<!--			<layout:HorizontalLayout allowWrapping="true" class="sapUiMediumMarginBegin">-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd classVerticalLayoutLeft">-->
+				<!--					<layout:VerticalLayout class="sapUiMediumMarginEnd classVerticalLayoutLeft">-->
+				<!--						<m:Title class="classTitle" text="{headerSetTab>/Payforname}" wrapping="true"/>-->
+				<!--					</layout:VerticalLayout>-->
+				<!--					<layout:VerticalLayout class="sapUiMediumMarginEnd classVerticalLayoutLeft"></layout:VerticalLayout>-->
+				<!--					<m:ObjectAttribute title="Period"/>-->
+				<!--					<layout:HorizontalLayout>-->
+				<!--						<core:Icon src="sap-icon://appointment-2"/>-->
+				<!--						<m:Text text="{headerSetTab>/Period}" class="classTextHeader"/>-->
+				<!--					</layout:HorizontalLayout>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Scorecard Type" />-->
+				<!--					<m:Label text="{headerSetTab>/ScType}" class="classTextHeader"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Chain ACN"/>-->
+				<!--					<m:Label text="{headerSetTab>/ChainBp}" class="classTextHeaderBold"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Document Number"/>-->
+				<!--					<m:Label text="{headerSetTab>/Srcdocno}" class="classTextHeaderBold"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--				<layout:VerticalLayout class="sapUiMediumMarginEnd">-->
+				<!--					<m:ObjectAttribute title="Scorecard Status"/>-->
+				<!--					<m:Text text="{headerSetTab>/ScStatus}" class="classTextHeaderBold"/>-->
+				<!--				</layout:VerticalLayout>-->
+				<!--			</layout:HorizontalLayout>-->
+				<!--		</snappedHeading>-->
+				<!--		<snappedHeading>-->
+				<!--			<m:Title class="classTitle" text="{headerSetTab>/Payforname}" wrapping="true"/>-->
+				<!--		</snappedHeading>-->
+				<!--		<expandedContent>-->
+				<!--			<m:Text text="Pay For: "/>-->
+				<!--			<m:Text class="classSubTitle" text="{headerSetTab>/Payfor}"/>-->
+				<!--		</expandedContent>-->
+				<!--		<snappedContent>-->
+				<!--			<m:Text text="Pay For: "/>-->
+				<!--			<m:Text class="classSubTitle" text="{headerSetTab>/Payfor}"/>-->
+				<!--		</snappedContent>-->
+				<!--		<expandedContent>-->
+				<!--			<m:Text class="sapUiSmallMarginBegin" text="Pay To: "/>-->
+				<!--			<m:Text class="classSubTitle" text="{headerSetTab>/Payto}"/>-->
+				<!--		</expandedContent>-->
+				<!--		<snappedContent>-->
+				<!--			<m:Text class="sapUiSmallMarginBegin" text="Pay To: "/>-->
+				<!--			<m:Text class="classSubTitle" text="{headerSetTab>/Payto}"/>-->
+				<!--		</snappedContent>-->
+				<!--		<actions>-->
+				<!--			<m:Link text="Help" press="onhandlePress"/>-->
+				<!--		</actions>-->
+				<!--	</ObjectPageDynamicHeaderTitle>-->
+				<!--</headerTitle>-->
+				<sections class="classPageSection">
+					<ObjectPageSection id="warrantyHome" title="Home">
+						<subSections showTitle="true" class="sapUxAPObjectPageSubSectionHeaderTitle">
+							<ObjectPageSubSection class="sapUxAPObjectPageSubSectionAlignContent" title="Claim Information">
+								<blocks>
+									<m:VBox>
+										<form:SimpleForm class="formHiddenTitle" editable="false" id="formClaimInfo" layout="ResponsiveGridLayout" 
+											labelSpanM="12" labelSpanL="12" labelSpanXL="12" content="{/ClaimInfoSet}"
+											columnsM="4" columnsL="4" >
+											<core:Title/>
+											<m:Label text="{Label}:" class="sapUiTinyMarginTop" />
+											<m:Text text="{Value}"/>
+											<m:Label text="{Label}"/>
+											<m:Text text="{Value}"/>
+											<m:Label text="{Label}"/>
+											<m:Text text="{Value}"/>
+											<core:Title/>
+											<m:Label text="Manual Claim Reason" class="sapUiTinyMarginTop" />
+											<m:Text text="Manual Claim Reason"/>
+											<m:Label text=""/>
+											<m:Text text=""/>
+											<core:Title/>
+											<m:Label text="OEM" class="sapUiTinyMarginTop" />
+											<m:Text text="OEM"/>
+											<m:Label text=""/>
+											<m:Text text=""/>
+											<m:Label text=""/>
+											<m:Text text=""/>
+											<core:Title/>
+											<m:Label text="Model" class="sapUiTinyMarginTop" />
+											<m:Text text="Model"/>
+											<m:Label text=""/>
+											<m:Text text=""/>
+										</form:SimpleForm>
+										<!--<forms:Form id="form1">-->
+										<!--	<forms:layout>-->
+										<!--		<forms:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"-->
+										<!--			emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4" singleContainerFullSize="false"/>-->
+										<!--	</forms:layout>-->
+										<!--	<forms:formContainers>-->
+										<!--		<forms:FormContainer>-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="SAP Invoice Number:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Invdocno}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Original Scorecard:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{}" class="sapUiTinyMarginTop classFormLabels"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--		<forms:FormContainer>-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Reconciliation Included?:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/InvType}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Replacement For Scorecard Number" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--		<forms:FormContainer>-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Payment Terms:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/ZahlkondSc}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Due Date:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Faedn}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--		<forms:FormContainer>-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Payment Method:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scPaymentModel>/paymentMethod}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Delivery Method:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDeliveryModel>/deliverymethod}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--	</forms:formContainers>-->
+										<!--</forms:Form>-->
+										<!--<forms:Form>-->
+										<!--	<forms:layout>-->
+										<!--		<forms:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"-->
+										<!--			emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4" singleContainerFullSize="false"/>-->
+										<!--	</forms:layout>-->
+										<!--	<forms:formContainers>-->
+										<!--		<forms:FormContainer title="Check Details">-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Check Number:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Ztnum}" class="sapUiTinyMarginTop classFormLabels"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Check Reissue Date:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Budat}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Check Cancel Date:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Checkcanceldate}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--		<forms:FormContainer title="">-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text=""></m:Label>-->
+										<!--						<m:Text text=""></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Check Date:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Laufd}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Check Cashed Date:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Bnkdt}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--		<forms:FormContainer title="Outlet Counts">-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Active:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Datbi}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Reporting:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Reporting}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--		<forms:FormContainer title="">-->
+										<!--			<forms:formElements>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text=""></m:Label>-->
+										<!--						<m:Text text=""></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--				<forms:FormElement>-->
+										<!--					<m:VBox>-->
+										<!--						<m:Label text="Paid:" class="classHeading" design="Bold"></m:Label>-->
+										<!--						<m:Text text="{scDetailTab>/Zzbp1}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+										<!--					</m:VBox>-->
+										<!--				</forms:FormElement>-->
+										<!--			</forms:formElements>-->
+										<!--		</forms:FormContainer>-->
+										<!--	</forms:formContainers>-->
+										<!--</forms:Form>-->
+									</m:VBox>
+								</blocks>
+							</ObjectPageSubSection>
+							<ObjectPageSubSection class="sapUxAPObjectPageSubSectionAlignContent" title="Work Order">
+								<blocks>
+									<m:Text text="work order"/>
+									<!--<m:VBox>-->
+									<!--	<forms:Form id="idcust">-->
+									<!--		<forms:layout>-->
+									<!--			<forms:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"-->
+									<!--				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4" singleContainerFullSize="false"/>-->
+									<!--		</forms:layout>-->
+									<!--		<forms:formContainers>-->
+									<!--			<forms:FormContainer>-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Customer:" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/Payforname}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="BP Type:" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/Bpkind}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--			<forms:FormContainer>-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Sales Position ID:" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/ZzSalesPositionId}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Cost Center:" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/ZzKostl}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--			<forms:FormContainer>-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Chain BP:" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/Partner}" class="sapUiTinyMarginTop "></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Chain Name:" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/Name}" class="sapUiTinyMarginTop classFormLabels"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--			<forms:FormContainer>-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Master Agreement:" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/Makey}" class="sapUiTinyMarginTop classFormLabels"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--		</forms:formContainers>-->
+									<!--	</forms:Form>-->
+									<!--	<forms:Form>-->
+									<!--		<forms:layout>-->
+									<!--			<forms:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0"-->
+									<!--				emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="4" columnsL="4" columnsM="4" singleContainerFullSize="false"/>-->
+									<!--		</forms:layout>-->
+									<!--		<forms:formContainers>-->
+									<!--			<forms:FormContainer title="Pay For">-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Text text="{ path: 'homeTab>/Payfor', formatter: '.formatter.formataddress' }" class="sapUiTinyMarginTop classFormLabels" wrapping="true"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--			<forms:FormContainer title="Pay To">-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Text text="{ path: 'homeTab>/Payto', formatter: '.formatter.formataddress' }" class="sapUiTinyMarginTop classFormLabels" wrapping="true"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--			<forms:FormContainer title="Account Team">-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Revenue Center" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/ZzRevCenterName}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Sales Person" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/SalesPerson}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--			<forms:FormContainer title="">-->
+									<!--				<forms:formElements>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text=""></m:Label>-->
+									<!--							<m:Text text=""></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="Budget Analyst" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/BudgetAnlyst}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--					<forms:FormElement>-->
+									<!--						<m:VBox>-->
+									<!--							<m:Label text="FSM" class="classHeading" design="Bold"></m:Label>-->
+									<!--							<m:Text text="{homeTab>/Fsm}" class="classFormLabels sapUiTinyMarginTop"></m:Text>-->
+									<!--						</m:VBox>-->
+									<!--					</forms:FormElement>-->
+									<!--				</forms:formElements>-->
+									<!--			</forms:FormContainer>-->
+									<!--		</forms:formContainers>-->
+									<!--	</forms:Form>-->
+									<!--</m:VBox>-->
+								</blocks>
+							</ObjectPageSubSection>
+							<!--<ObjectPageSubSection class="sapUxAPObjectPageSubSectionAlignContent" titleUppercase="false" title="Previous Scorecards" id="idprevious">-->
+							<!--	<blocks>-->
+							<!--		<m:Table id="table1" class="sapUxAPObjectPageSubSectionAlignContent" width="auto" items="{previousScTab>/}" growing="true"-->
+							<!--			growingThreshold="20" growingScrollToLoad="true" enableBusyIndicator="true">-->
+							<!--			<m:columns vAlign="Middle">-->
+							<!--				<m:Column width="8rem">-->
+							<!--					<m:Label text="Scorecard Number #" wrapping="true" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column width="4rem">-->
+							<!--					<m:Label text="Status" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column width="6rem">-->
+							<!--					<m:Label text="Period/Year" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column width="8rem">-->
+							<!--					<m:Label text="Scorecard Type" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column width="8rem">-->
+							<!--					<m:Label text="Earned Funding" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column width="8rem">-->
+							<!--					<m:Label text="Total Deductions" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column width="10rem">-->
+							<!--					<m:Label text="Earned Reimb Amt" design="Bold" wrapping="true"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column>-->
+							<!--					<m:Label text="Check #" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column>-->
+							<!--					<m:Label width="10rem" text="Check Date" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--				<m:Column>-->
+							<!--					<m:Label width="10rem" text="Check Amt" design="Bold"/>-->
+							<!--				</m:Column>-->
+							<!--			</m:columns>-->
+							<!--			<m:items>-->
+							<!--				<m:ColumnListItem vAlign="Middle">-->
+							<!--					<m:cells>-->
+							<!--						<m:Link text="{previousScTab>Srcdocno}" press="onPressDocNo"></m:Link>-->
+							<!--						<m:ObjectStatus text="{previousScTab>ScStatus}" state="{ path: 'previousScTab>ScStatus', formatter: '.formatter.formatScorecardState' }"></m:ObjectStatus>-->
+							<!--						<m:Text text="{previousScTab>Period}"></m:Text>-->
+							<!--						<m:Text text="{previousScTab>ScType}"></m:Text>-->
+							<!--						<m:Text text="{path:'previousScTab>Earnedfunding' ,formatter :'.formatter.formatCurrency'}"></m:Text>-->
+							<!--						<m:Text text="{path:'previousScTab>Totaldeduction', formatter : '.formatter.formatCurrency'}"></m:Text>-->
+							<!--						<m:Text text="{path:'previousScTab>Earnedreimbamt' ,formatter : '.formatter.formatCurrency'}"></m:Text>-->
+							<!--						<m:Text text="{previousScTab>Ztnum}"></m:Text>-->
+							<!--						<m:Text text="{previousScTab>Laufd}"></m:Text>-->
+							<!--						<m:Text text="{path:'previousScTab>Rbetr' ,formatter : '.formatter.formatCurrency'}"></m:Text>-->
+							<!--					</m:cells>-->
+							<!--				</m:ColumnListItem>-->
+							<!--			</m:items>-->
+							<!--		</m:Table>-->
+							<!--		<table:Table id="idPreviouse" selectionMode="None" rows="{previousScTab>/}" visibleRowCount="4" ariaLabelledBy="title"-->
+							<!--			class="sapUxAPObjectPageSubSectionAlignContent" width="auto">-->
+							<!--			<table:columns>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Document #" class="classHeading sapUiTinyMarginTop"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Srcdocno}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Status" class="classHeading sapUiTinyMarginTop"/>-->
+							<!--					<table:template>-->
+							<!--						<m:ObjectStatus text="{previousScTab>ScStatus}" state="{ path: 'previousScTab>ScStatus', formatter: '.formatter.formatScorecardState' }"></m:ObjectStatus>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Period/Year"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Period}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Scorecard Type"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>ScType}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Earned Funding"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Earnedfunding}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Total Deductions"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Totaldeduction}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Earned Reimb Amt"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Earnedreimbamt}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Check #"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Ztnum}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Check Date"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Laufd}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--				<table:Column>-->
+							<!--					<m:Label text="Check Amt"/>-->
+							<!--					<table:template>-->
+							<!--						<m:Text text="{previousScTab>Rbetr}"></m:Text>-->
+							<!--					</table:template>-->
+							<!--				</table:Column>-->
+							<!--			</table:columns>-->
+							<!--		</table:Table>-->
+							<!--	</blocks>-->
+							<!--</ObjectPageSubSection>-->
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="History And Notes">
+						<subSections>
+							<ObjectPageSubSection >
+								<core:Fragment fragmentName="tccc.zbar.warranty.fragment.HistoryAndNotes" type="XML"/>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+			</ObjectPageLayout>
+		</m:content>
+		<m:footer>
+			<core:Fragment fragmentName="tccc.zbar.warranty.fragment.footerToolbar" type="XML"/>
+		</m:footer>
+	</m:Page>
+</mvc:View>
