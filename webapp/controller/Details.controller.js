@@ -12,37 +12,48 @@ sap.ui.define([
 		 */
 		onInit: function () {
 			const oJSONData={
-				ClaimInfoSet:[{
-						Label:"Claim Number",
-						Value:"Claim Number"
-					},{
-						Label:"Claimed to OEM",
-						Value:"Claimed to OEM"
-					},{
-						Label:"Customer Invoice Number",
-						Value:"Customer Invoice Number"
-					},{
-						Label:"Manual Claim Reason",
-						Value:"Manual Claim Reason"
-					},{
-						Label:"Status",
-						Value:"Status"
-					},{
-						Label:"OEM",
-						Value:"OEM"
-					},{
-						Label:"Equipment Type",
-						Value:"Equipment Type"
-					},{
-						Label:"Install Date",
-						Value:"Install Date"
-					},{
-						Label:"Model",
-						Value:"Model"
-					},{
-						Label:"Serial Number",
-						Value:"Serial Number"
-					}]
+				ClaimInfoSet:{
+					"Claim Number":"1231231",
+					"Claimed to OEM":"Heinz",
+					"Customer Invoice Number":"134498",
+					"Manual Claim Reason":"PTS/Service Invoice",
+					Status:"Submitted",
+					OEM:"Heinz",
+					"Equipment Type":"FN",
+					"Install Date":"01/01/2019",
+					Model:"CRW",
+					"Serial Number":"SerialNo"
+				},
+				WorkOrderSet:{
+					"Work Order Number":"V431933481",
+					Category:"No Repair",
+					"Travel Time":"60 minutes",
+					"Call Date":"10/30/2020",
+					Service:"Reactive Service",
+					"Work Time":"120 minutes",
+					"Invoice Number":"2348349",
+					"Issues Found":"None",
+					"Invoice Date":"01/01/2021",
+					Technician:"Kelly Barnes"
+				},
+				PartsSet:[],
+				StoreSet:{
+					"Account Number":"16000000723",
+					"Region":"West",
+					"Co-Op":"Yes",
+					"Store Number":"4664",
+					"Store BP Number":"0023",
+					"Ownership BP Number":"47263748",
+					"Owner/Operator":"Graham McAllan",
+					"Physical Address Name":"PPG AFI FOODSVC",
+					"Physical Address Street":"1 Center Dr",
+					"Physical Address CityStateZip":"Elizabeth, NJ 07201-2906",
+					"Mail Address Name":"PPG AFI FOODSVC",
+					"Mail Address Street":"1 Center Dr",
+					"Mail Address CityStateZip":"Elizabeth, NJ 07201-2906",
+					"COM":"Andrea Daye",
+					"Service Invoice Specialist":"Kyle Stone"
+				}
 			};
 			this.getView().setModel(new JSONModel(oJSONData));
 			// this.byId("formClaimInfo").bindElement
